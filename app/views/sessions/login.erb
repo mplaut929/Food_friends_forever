@@ -1,0 +1,7 @@
+<h1>Enter Username:</h1>
+
+
+<%= form_tag '/login', method: :post do %>
+  <%= text_field_tag :username, params[:username] %>
+  <%= submit_tag "submit" %>
+<% end %>
