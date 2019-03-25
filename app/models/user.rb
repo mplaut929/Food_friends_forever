@@ -8,8 +8,6 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
 
-  #has_many :friends, -> { where(status: "accepted") }, through: :friendships
-
   #Return all users who are connected to the given user via a accepted friendship or accepted inverse friendship.
   def friends
     friends_array = friendships.map{|friendship| friendship.friend if friendship.accepted }
@@ -17,25 +15,23 @@ class User < ApplicationRecord
     new_friends_array.compact
   end
 
-
+  #finds friend requests that others have sent this user
   def incoming_pending_friend_requests
     inverse_friendships.map{ |friendship| friendship.user }
   end
 
   def incoming_pending?(id)
-    # if incoming_pending_friend_requests.include?(id)
     incoming_pending_friend_requests.find do |friend|
           friend.id == id
       end
     end
 
-
+  #finds friend requests that user has sent others
   def outgoing_pending_friend_requests
     friendships.map{ |friendship| friendship.friend }
   end
 
   def outgoing_pending?(id)
-    # if outgoing_pending_friend_requests.include?(id)
     outgoing_pending_friend_requests.find do |friend|
         friend.id == id
       end
