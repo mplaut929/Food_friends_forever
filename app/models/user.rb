@@ -14,9 +14,9 @@ class User < ApplicationRecord
   def friends
     friends_array = friendships.map{|friendship| friendship.friend if friendship.accepted }
     new_friends_array = friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.accepted }
-    new_friends_array
+    new_friends_array.compact
   end
 
-  
+
 
 end

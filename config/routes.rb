@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :friendships
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  get "/friends", to: "users#friends", as: "active_friends"
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
