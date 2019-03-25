@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  def login
+    current_user
+  end
+
+
+
   def index
     @users = User.all
   end
@@ -10,6 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    session[:user_id] = @user.id
     if @user.valid?
       redirect_to user_path(@user)
     else
