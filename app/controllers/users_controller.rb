@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-
-  def login
-    current_user
-  end
-
-
+before_action :logged_in?, only: [:show]
+  #
+  # def login
+  #   current_user
+  # end
 
   def index
     @users = User.all

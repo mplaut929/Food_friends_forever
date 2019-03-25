@@ -1,9 +1,21 @@
-<h1><%= @user.first_name %></h1>
-<p>
-  Username: <%= @user.username %><br>
-  Age: <%= @user.age %><br>
-  City: <%= @user.city %><br>
-  Bio: <%= @user.bio %>
-</p>
+<div id="user_profile">
 
-<%= button_to "logout", logout_path, method: :delete  %>
+  <div class="profile_pic">
+    <%# image_path(@user.profile_pic) %>
+  </div>
+
+  <div class="profile_info">
+    <h1><%= @user.first_name %></h1>
+      <p>
+        Username: <%= @user.username %><br>
+        Age: <%= @user.age %><br>
+        City: <%= @user.city %><br>
+        Bio: <%= @user.bio %>
+      </p>
+
+    <% if @user.id == session[:user_id] %>
+    <%= button_to "logout", logout_path, method: :delete  %>
+    <% end %>
+  </div>
+
+</div>
