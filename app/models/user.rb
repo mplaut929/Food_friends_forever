@@ -17,4 +17,6 @@ class User < ApplicationRecord
     new_friends_array
   end
 
+  
+
 end
