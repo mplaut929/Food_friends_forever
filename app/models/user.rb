@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
   has_many :users, through: :inverse_friendships
 
+  validates :username, uniqueness: true
+  validates :first_name, :username, :city, :age, presence: true
+
   #has_many :friends, -> { where(status: "accepted") }, through: :friendships
 
   #Return all users who are connected to the given user via a accepted friendship or accepted inverse friendship.
