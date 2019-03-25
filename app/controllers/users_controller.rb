@@ -21,6 +21,7 @@ before_action :logged_in?, only: [:show]
   end
 
   def show
+    current_user
     @user = User.find(params[:id])
   end
 

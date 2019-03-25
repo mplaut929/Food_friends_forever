@@ -18,7 +18,11 @@
     <% end %>
 
 
-    <%= button_to "REQUEST TO FORK WITH THIS PERSON", user_path(@user), method: :post%>
+    <% if (!@current_user.incoming_pending?(@user.id) && !@current_user.outgoing_pending?(@user.id)) && (@current_user.id != @user.id)  %>
+      <%= button_to "REQUEST TO FORK WITH THIS PERSON", user_path(@user), method: :post%>
+      <% elsif @current_user.outgoing_pending?(@user.id) %>
+      <p>You've already friended this User</p>
+      <% end %>
 
   </div>
 
