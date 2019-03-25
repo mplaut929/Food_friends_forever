@@ -2,11 +2,7 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: "User"
 
-  validate :already_has_friendship?
-
-   def already_has_friendship?
-     errors.add(:friend, 'already requested friendship') if user.friendships.include?(friend)
-   end
+  validates :user_id, uniqueness: { scope: :friend_id}
 
 
   def accept

@@ -18,5 +18,24 @@ class User < ApplicationRecord
   end
 
 
+  def incoming_pending_friend_requests
+    inverse_friendships.map{ |friendship| friendship.user if !friendship.accepted }
+  end
+
+  def incoming_pending?(id)
+    incoming_pending_friend_requests.find do |friend|
+      friend.id == id
+    end
+  end
+
+  def outgoing_pending_friend_requests
+    friendships.map{ |friendship| friendship.friend if !friendship.accepted }
+  end
+
+  def outgoing_pending?(id)
+    outgoing_pending_friend_requests.find do |friend|
+      friend.id == id
+    end
+  end
 
 end
