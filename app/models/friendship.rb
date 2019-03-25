@@ -4,7 +4,7 @@ class Friendship < ApplicationRecord
 
 
   def accept
-    self.update status: "accepted"
+    self.update accepted: true
   end
 
 

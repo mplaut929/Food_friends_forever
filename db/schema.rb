@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_22_153900) do
+ActiveRecord::Schema.define(version: 2019_03_25_132734) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
     t.integer "friend_id"
-    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted"
   end
 
   create_table "users", force: :cascade do |t|
