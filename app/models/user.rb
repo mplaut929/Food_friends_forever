@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   #Return all users who are connected to the given user via a accepted friendship or accepted inverse friendship.
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.status == "accepted" }
-    new_friends_array = friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.status == "accepted" }
+    friends_array = friendships.map{|friendship| friendship.friend if friendship.accepted }
+    new_friends_array = friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.accepted }
     new_friends_array
   end
 
