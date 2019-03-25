@@ -19,23 +19,27 @@ class User < ApplicationRecord
 
 
   def incoming_pending_friend_requests
-    inverse_friendships.map{ |friendship| friendship.user if !friendship.accepted }
+    inverse_friendships.map{ |friendship| friendship.user }
   end
 
   def incoming_pending?(id)
+    # if incoming_pending_friend_requests.include?(id)
     incoming_pending_friend_requests.find do |friend|
-      friend.id == id
+          friend.id == id
+      end
     end
-  end
+
 
   def outgoing_pending_friend_requests
-    friendships.map{ |friendship| friendship.friend if !friendship.accepted }
+    friendships.map{ |friendship| friendship.friend }
   end
 
   def outgoing_pending?(id)
+    # if outgoing_pending_friend_requests.include?(id)
     outgoing_pending_friend_requests.find do |friend|
-      friend.id == id
+        friend.id == id
+      end
     end
-  end
+
 
 end

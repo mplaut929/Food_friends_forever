@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
 
   def create
     Friendship.add_friend(current_user.id, params[:id])
-    redirect_to '/'
+    redirect_to user_path(params[:id])
   end
 
   def edit
@@ -18,11 +18,16 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    #code
+    @friendship = Friendship.find(params[:id])
+    @friendship.accept
+    redirect_to friendships_path
   end
 
   def destroy
     #code
+    # @friendship = Friendship.find(params[:id])
+    # @freindship.destroy
+    # redirect_to friendships_path
   end
 
   private
@@ -30,5 +35,6 @@ class FriendshipsController < ApplicationController
   def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id)
   end
+
 
 end

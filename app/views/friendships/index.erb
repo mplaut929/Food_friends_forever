@@ -3,7 +3,9 @@
 <% @friendships.each do |friendship| %>
   <% if @current_user.id == friendship.friend_id %>
     <% if !friendship.accepted %>
-      <p><%= friendship.user.username %> wants to be your friend</p>
+      <p><%= friendship.user.username %> wants to be your friend
+      <%= button_to "accept", friendship_path(friendship) %>
+      <%= button_to "decline", friendship_path(friendship), method: :delete %></p>
       <% else %>
       <p>No pending friend requests</p>
     <% end %>
