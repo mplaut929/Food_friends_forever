@@ -16,6 +16,10 @@
     <% if @user.id == session[:user_id] %>
     <%= button_to "logout", logout_path, method: :delete  %>
     <% end %>
+
+
+    <%= button_to "REQUEST TO FORK WITH THIS PERSON", user_path(@user), method: :post%>
+
   </div>
 
 </div>

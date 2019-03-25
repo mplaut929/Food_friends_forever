@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#index'
 
+  post '/users/:id', to: 'friendships#create'
+
 end

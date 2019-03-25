@@ -10,7 +10,8 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    #code
+    Friendship.add_friend(current_user.id, params[:id])
+    redirect_to '/'
   end
 
   def edit
@@ -23,6 +24,12 @@ class FriendshipsController < ApplicationController
 
   def destroy
     #code
+  end
+
+  private
+
+  def friendship_params
+    params.require(:friendship).permit(:user_id, :friend_id)
   end
 
 end
