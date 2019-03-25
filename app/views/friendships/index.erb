@@ -1,0 +1,11 @@
+<h1>Pending Friends Requests</h1>
+
+<% @friendships.each do |friendship| %>
+  <% if @current_user.id == friendship.friend_id %>
+    <% if !friendship.accepted %>
+      <p><%= friendship.friend.username %> wants to be your friend</p>
+      <% else %>
+      <p>No pending friend requests</p>
+    <% end %>
+  <% end %>
+<% end %>
