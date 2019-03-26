@@ -1,48 +1,58 @@
 <%= render "/layouts/errors" %>
-
 <div id="new_user_form">
+<div class="ui form">
 
-  <%= form_for @user do |f| %>
-  <p>
+
+  <%= form_for @user do |f|%>
+  <div class="field">
+
   <%= f.label :first_name %>
   <%= f.text_field :first_name%>
-  </p>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :username %>
   <%= f.text_field :username%>
-  </p>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :password %>
   <%= f.password_field :password %>
-  </p>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :confirm_password %>
   <%= f.password_field :password_confirmation %>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :profile_pic %>
   <%= f.text_field :profile_pic %>
-  </p>
-  <p>
+  </div>
+<div class="field">
   <%= f.label :age %>
   <%= f.number_field :age%>
-  </p>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :city %>
   <%= f.text_field :city%>
-  </p>
-  <p>
+  </div>
+  <div class="field">
   <%= f.label :bio %>
   <%= f.text_area :bio%>
-  </p>
-  <p>
+  </div>
+  <div class="inline field">
   <%= f.label "Select All Dietary Restrictions That Apply" %><br>
-  <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
-  </p>
-  <p>
+  <div class="ui checkbox">
+    <input type="checkbox">
+      <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
+    </div>
+  </div>
+  <!-- <div class="field"> -->
   <%= f.label "Favorite Cuisine" %>
-  <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
-  </p>
-  <p>
+    <!-- <div class="ui selection dropdown">
+      <i class = "dropdown icon"></i>
+      <div class="menu"> -->
+      <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
+      <!-- </div>
+    </div>
+  </div> -->
   <%= f.label "Do you prefer eating out or staying in?" %>
   <%= f.collection_select(:eating_location_id, @eating_locations, :id, :name, prompt: true) %>
   <%= f.label "Favorite Meal:" %>
@@ -54,4 +64,5 @@
   </div>
 <% end %>
 
+</div>
 </div>

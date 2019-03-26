@@ -124,7 +124,11 @@ button {
 
 
  /************************* NEW USER FORM **************************/
-
+  #new_user_form {
+    margin-right: 20%;
+    margin-left: 5%;
+    text-align: left;
+  }
 
  /************************* USER PROFILE PAGE **************************/
 
