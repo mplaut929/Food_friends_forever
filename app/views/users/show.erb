@@ -1,10 +1,10 @@
 <div id="user_profile">
 
-  <div class="profile_pic">
+  <div id="profile_pic">
     <% begin %>
-    <p><%= image_tag "#{@user.profile_pic}"%></p>
+    <p><%= image_tag("#{@user.profile_pic}")%></p>
     <% rescue %>
-    <p><%= "Yo, where's that image" %></p>
+    <p><%= image_tag("profile_default")%></p>
     <% end %>
   </div>
 
@@ -23,9 +23,9 @@
 
 
     <% if (!@current_user.incoming_pending?(@user.id) && !@current_user.outgoing_pending?(@user.id)) && (@current_user.id != @user.id)  %>
-      <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
+      <%= button_to "Add Foodie", user_path(@user), method: :post%>
       <% elsif @current_user.outgoing_pending?(@user.id) %>
-        <p>Foodie Friend Request Pending</p>
+        <p>Foodie Request Pending</p>
       <% end %>
 
   </div>
