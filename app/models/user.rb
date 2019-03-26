@@ -22,32 +22,40 @@ class User < ApplicationRecord
   end
 
   #finds friend requests that others have sent this user
-  def incoming_pending_friend_requests
+  def all_incoming_friend_requests
     inverse_friendships.map{ |friendship| friendship.user }
   end
 
-  def incoming_pending?(id)
-    incoming_pending_friend_requests.find do |friend|
+  def incoming_requests(id)
+    all_incoming_friend_requests.find do |friend|
           friend.id == id
       end
     end
 
   #finds friend requests that user has sent others
-  def outgoing_pending_friend_requests
-    friendships.map{ |friendship| friendship.friend }
+  def all_outgoing_friend_requests
+    friendships.map{ |friendship| friendship.friend}
   end
 
-  def outgoing_pending?(id)
-    outgoing_pending_friend_requests.find do |friend|
+  def outgoing_requests(id)
+    all_outgoing_friend_requests.find do |friend|
         friend.id == id
       end
     end
 
-  # def num_pending_requests
-  #   inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
-  # end
+  def outgoing_pending?(id)
+    user = outgoing_requests(id)
+    self.friends.include?(user)
+  end
 
+  def incoming_pending?(id)
+    user = incoming_requests(id)
+    self.friends.include?(user)
+  end
 
+  def num_pending_requests
+    inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
+  end
 
 
 end
