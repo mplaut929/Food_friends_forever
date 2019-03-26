@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :logged_in?, only: [:show]
+before_action :logged_in?, only: [:show, :edit]
 
   def index
     @users = User.all
@@ -49,11 +49,10 @@ before_action :logged_in?, only: [:show]
     end
   end
 
-
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, restriction_ids: [])
+    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, :password, restriction_ids: [])
   end
 
 end
