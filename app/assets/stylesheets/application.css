@@ -20,22 +20,17 @@
 
  body {
    text-align: center;
- }
+  }
 
- /* .main-body-content {
-   width: 90%;
-   align-items: center;
- }
- */
  button a {
   text-decoration: none;
   font-size: 20px;
   color: white;
-}
+  }
 
-button {
-  padding: 15px;
-}
+  button {
+    padding: 15px;
+  }
 
 /************************* TOP NAV BAR **************************/
 
@@ -44,9 +39,12 @@ button {
     background-color: #6FCEDB;
   }
 
-  .nav_button {
-    display: inline-block;
-    margin-right: 10px;
+  #top_nav a, a:visited {
+    color: white;
+  }
+
+  #top_nav a:hover, a:active {
+  color: black;
   }
 
  /************************* HOME PAGE **************************/
@@ -153,7 +151,7 @@ button {
   .login_page_body {
     height: 100%;
     width: 100%;
-    background-image: url("/assets/login_background.jpg");
+    background-image: url("/assets/login2.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -172,14 +170,15 @@ button {
  /************************* USER PROFILE PAGE **************************/
 
  #profile_container {
-   margin-top: 4%;
-   /* display: flex;
-   justify-content: center;
-   align-items: center; */
+   margin-top: 5%;
+   margin-bottom: 5%;
+   margin-right: 10%;
+   margin-left: 10%;
+
  }
 
  .profile_picture_box {
-   margin-right: 10px;
+   margin-right: 0px;
  }
 
  .profile_info {
@@ -196,4 +195,9 @@ button {
 
  .foodie {
    color: #6FCEDB;
+ }
+
+ .pending_friend_text {
+   color: #6FCEDB;
+   font-weight: bold;
  }
