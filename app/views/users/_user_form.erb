@@ -39,9 +39,12 @@
   <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
   </p>
   <p>
-    <%= f.label "Favorite Cuisine" %>
-    <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
+  <%= f.label "Favorite Cuisine" %>
+  <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
   </p>
+  <p>
+  <%= f.label "Do you prefer eating out or staying in?" %>
+  <%= f.collection_select(:eating_location_id, @eating_locations, :id, :name, prompt: true) %>
   <div class="ui button">
   <%= f.submit %>
   </div>

@@ -17,8 +17,9 @@
         Bio: <%= @user.bio %><br>
         Dietary Preferences: <% @user.restrictions.each do |restriction| %><br>
         - <%= restriction.name %><br>
-        <% end %>
-        Favorite Cuisine: <%= @user.fav_cuisine.name %>
+        <% end %><br>
+        Favorite Cuisine: <%= @user.fav_cuisine.name %><br>
+        I prefer to: <%= @user.eating_location.name %>
       </p>
 
     <% if @user.id == session[:user_id] %>

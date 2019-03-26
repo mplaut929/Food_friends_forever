@@ -9,6 +9,7 @@ before_action :logged_in?, only: [:show, :edit]
     @user = User.new
     @restrictions = Restriction.all
     @fav_cuisines = FavCuisine.all
+    @eating_locations = EatingLocation.all
   end
 
   def create
@@ -34,6 +35,7 @@ before_action :logged_in?, only: [:show, :edit]
   def edit
     @restrictions = Restriction.all
     @fav_cuisines = FavCuisine.all
+    @eating_locations = EatingLocation.all
     current_user
     @user = User.find(params[:id])
   end
@@ -41,6 +43,7 @@ before_action :logged_in?, only: [:show, :edit]
   def update
     @restrictions = Restriction.all
     @fav_cuisines = FavCuisine.all
+    @eating_locations = EatingLocation.all
     current_user
     @user = User.find(params[:id])
     @user.update(user_params)
@@ -55,7 +58,7 @@ before_action :logged_in?, only: [:show, :edit]
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, :password, :fav_cuisine_id, restriction_ids: [])
+    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, :password, :eating_location_id, :fav_cuisine_id, restriction_ids: [])
   end
 
 end
