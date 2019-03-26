@@ -1,6 +1,20 @@
+<h1>Browse All Users</h1>
+
+<div class = "image-gallery">
 <% @users.each do |user| %>
-  <p>
-  <%= link_to user.profile_pic, user_path(user) %>
-  <%= user.username %>
-  </p>
-  <% end %>
+  <% if user != @current_user %>
+      <div class ="container">
+      <% begin %>
+      <%= link_to (image_tag("#{user.profile_pic}")), user_path(user), class: "gallery-img image" %><br>
+      <% rescue %>
+      <%= link_to image_tag("profile_default"), user_path(user), class: "gallery-img image" %><br>
+      <% end %>
+      <div class="middle">
+      <div class = "text" >
+      <%= link_to user.username, user%>
+      </div>
+      </div>
+    </div>
+    <% end %>
+<% end %>
+</div>
