@@ -12,6 +12,13 @@
   <%= f.text_field :username%>
   </p>
   <p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </p>
+  <p>
+  <%= f.label :confirm_password %>
+  <%= f.password_field :password_confirmation %>
+  <p>
   <%= f.label :profile_pic %>
   <%= f.text_field :profile_pic %>
   </p>
@@ -27,10 +34,11 @@
   <%= f.label :bio %>
   <%= f.text_area :bio%>
   </p>
-  <div class="ui button">
-  <%= f.label "Please Select All THat Apply" %><br>
+  <p>
+  <%= f.label "Select All That Apply" %><br>
   <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
-
+  </p>
+  <div class="ui button">
   <%= f.submit %>
   </div>
 <% end %>

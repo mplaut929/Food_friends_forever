@@ -5,7 +5,7 @@
     <% if !friendship.accepted %>
       <p><%= friendship.user.username %> wants to be your friend
       <%= button_to "LETS EAT 🍩", friendship_path(friendship) %>
-      <%= button_to "I'm FULLLL", friendship_path(friendship), method: :delete, data: {confirm: "Really?  Thats kinds mean... 😢"} %></p>
+      <%= button_to "I'M FULLLL", friendship_path(friendship), method: :delete, data: {confirm: "Really? That's kinds mean... 😢"} %></p>
       <% else %>
       <p>No pending friend requests</p>
     <% end %>

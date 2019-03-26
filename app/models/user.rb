@@ -5,12 +5,14 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
   has_many :users, through: :inverse_friendships
 
-  has_many :user_restrictions
+  has_many :user_restrictions, dependent: :destroy
   has_many :restrictions, through: :user_restrictions
 
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
   before_save {username.downcase!}
+
+  has_secure_password
 
   #Return all users who are connected to the given user via a accepted friendship or accepted inverse friendship.
   def friends
