@@ -42,7 +42,6 @@ button {
   #top_nav {
     width: 100%;
     background-color: #6FCEDB;
-
   }
 
   .nav_button {
@@ -71,19 +70,17 @@ button {
  /************************* Index and Friend Galleries **************************/
 
   .image-gallery {
+    align-items: center;
+    justify-items: center;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 10px;
-
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
+    margin: 40px;
    }
 
   .container {
     position: relative;
-    width: 50%;
+    /* width: 50%; */
   }
 
   .image {
@@ -96,6 +93,9 @@ button {
   }
 
   .middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: .5s ease;
     opacity: 0;
     position: absolute;
@@ -115,11 +115,42 @@ button {
   }
 
   .text {
-    background-color: #4CAF50;
+    background-color: #6FCEDB;
     color: white;
     font-size: 16px;
     padding: 16px 32px;
+    /* align-self: center; */
   }
 
 
  /************************* NEW USER FORM **************************/
+
+
+ /************************* USER PROFILE PAGE **************************/
+
+ #profile_container {
+   margin-top: 4%;
+   /* display: flex;
+   justify-content: center;
+   align-items: center; */
+ }
+
+ .profile_picture_box {
+   margin-right: 10px;
+ }
+
+ .profile_info {
+   text-align: left;
+ }
+
+ .profile_text {
+   font-size: 18px;
+ }
+
+ .profile_food_text {
+   font-size: 16px;
+ }
+
+ .foodie {
+   color: #6FCEDB;
+ }
