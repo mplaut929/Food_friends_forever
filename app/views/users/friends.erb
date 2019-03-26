@@ -4,6 +4,13 @@
     No friends yet
     <% else %>
     <% @current_user.friends.each do |friend| %>
-      <p><%= link_to friend.username, friend %></p>
+
+    <p>
+    <% begin %>
+    <%= link_to (image_tag("#{friend.profile_pic}")), user_path(friend) %><br>
+    <% rescue %>
+    <%= link_to (image_tag("profile_default")), user_path(friend) %><br>
+    <% end %>
+    <%= link_to friend.username, friend %></p>
     <% end %>
 <% end %>
