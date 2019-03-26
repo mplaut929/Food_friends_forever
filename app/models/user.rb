@@ -54,8 +54,11 @@ class User < ApplicationRecord
   end
 
   def num_pending_requests
-    inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
+      if inverse_friendships
+        inverse_friendships.select{|friendship| !friendship.accepted }.length
+      else
+        "0"
+      end
   end
-
 
 end
