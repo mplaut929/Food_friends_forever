@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   belongs_to :fav_cuisine
   belongs_to :eating_location
+  belongs_to :meal
+  belongs_to :shopping
 
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true

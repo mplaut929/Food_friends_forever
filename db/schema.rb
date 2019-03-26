@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_173502) do
+ActiveRecord::Schema.define(version: 2019_03_26_180128) do
 
   create_table "eating_locations", force: :cascade do |t|
     t.string "name"
@@ -32,7 +32,19 @@ ActiveRecord::Schema.define(version: 2019_03_26_173502) do
     t.boolean "accepted"
   end
 
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "restrictions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shoppings", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_03_26_173502) do
     t.string "password_digest"
     t.integer "fav_cuisine_id"
     t.integer "eating_location_id"
+    t.integer "meal_id"
+    t.integer "shopping_id"
   end
 
 end
