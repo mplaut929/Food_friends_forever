@@ -22,6 +22,11 @@
    text-align: center;
  }
 
+ /* .main-body-content {
+   width: 90%;
+   align-items: center;
+ }
+ */
  button a {
   text-decoration: none;
   font-size: 20px;
@@ -35,11 +40,9 @@ button {
 /************************* TOP NAV BAR **************************/
 
   #top_nav {
-    border: 1px solid black;
     width: 100%;
-    padding: 10px;
-    margin: 0 auto;
-    background-color: yellow;
+    background-color: #6FCEDB;
+
   }
 
   .nav_button {
