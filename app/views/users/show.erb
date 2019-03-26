@@ -19,7 +19,9 @@
         - <%= restriction.name %><br>
         <% end %><br>
         Favorite Cuisine: <%= @user.fav_cuisine.name %><br>
-        I prefer to: <%= @user.eating_location.name %>
+        I prefer to: <%= @user.eating_location.name %><br>
+        Favorite meal: <%= @user.meal.name %><br>
+        I prefer to grocery shop at: <%= @user.shopping.name %>
       </p>
 
     <% if @user.id == session[:user_id] %>

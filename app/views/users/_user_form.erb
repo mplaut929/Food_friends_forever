@@ -45,6 +45,10 @@
   <p>
   <%= f.label "Do you prefer eating out or staying in?" %>
   <%= f.collection_select(:eating_location_id, @eating_locations, :id, :name, prompt: true) %>
+  <%= f.label "Favorite Meal:" %>
+  <%= f.collection_select(:meal_id, @meals, :id, :name, prompt: true) %>
+  <%= f.label "Where would you prefer to grocery shop?" %>
+  <%= f.collection_select(:shopping_id, @shoppings, :id, :name, prompt: true) %>
   <div class="ui button">
   <%= f.submit %>
   </div>
