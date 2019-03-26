@@ -1,23 +1,20 @@
 <div id="top_nav">
+<div class="ui secondary pointing menu">
 
-<div class="nav_button">
-  <%= link_to "View all profiles", users_path %>
-</div>
+
+  <%= link_to "View all profiles", users_path, class: "item"%>
 
 <% if !session[:user_id] %>
-  <div class="nav_button">
-    <%= button_to "Login", login_path, method: :get  %>
-  </div>
-  <div class="nav_button">
-    <%= button_to "Sign Up", new_user_path, method: :get  %>
-  </div>
+    <%= link_to "Login", login_path, class: "item"  %>
+    <%= link_to "Sign Up", new_user_path, class: "item"  %>
 <% else %>
-  <div class="nav_button">
-    <%= button_to "logout", logout_path, method: :delete  %>
-    <%= button_to "View Friends", active_friends_path, method: :get  %>
-      <p>Pending Foodie Requests: <%= link_to (@current_user.num_pending_requests), friendships_path, method: :get %></p>
-      <p><%= "Hi, #{@current_user.first_name}" %><%= button_to "View Profile", user_path(@current_user)%></p>
-  </div>
+      <%= link_to "View Profile", user_path(@current_user), class: "item"%>
+      <%= link_to "View Friends", active_friends_path, class: "item"  %>
+      <%= link_to "Pending Foodie Requests: #{@current_user.num_pending_requests}", friendships_path, class: "item" %>
+      <div class="right menu">
+        <%= link_to "Logout", logout_path, method: :delete, class: "item"  %>
+      </div>
 <% end %>
 
+</div>
 </div>
