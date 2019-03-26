@@ -2,7 +2,9 @@
 
 <%= render "/layouts/errors" %>
 
-<%= form_for @user  do |f| %>
+<div id="new_user_form">
+
+  <%= form_for @user do |f| %>
   <p>
   <%= f.label :first_name %>
   <%= f.text_field :first_name%>
@@ -27,7 +29,9 @@
   <%= f.label :bio %>
   <%= f.text_area :bio%>
   </p>
-  <p>
+  <div class="ui button">
   <%= f.submit %>
-  </p>
+  </div>
 <% end %>
+
+</div>
