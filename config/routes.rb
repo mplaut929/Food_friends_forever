@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_restrictions, only: [:new, :create]
   resources :friendships
   resources :users
 

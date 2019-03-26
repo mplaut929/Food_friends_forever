@@ -4,8 +4,8 @@
   <% if @current_user.id == friendship.friend_id %>
     <% if !friendship.accepted %>
       <p><%= friendship.user.username %> wants to be your friend
-      <%= button_to "accept", friendship_path(friendship) %>
-      <%= button_to "decline", friendship_path(friendship), method: :delete %></p>
+      <%= button_to "LETS EAT 🍩", friendship_path(friendship) %>
+      <%= button_to "I'm FULLLL", friendship_path(friendship), method: :delete, data: {confirm: "Really?  Thats kinds mean... 😢"} %></p>
       <% else %>
       <p>No pending friend requests</p>
     <% end %>

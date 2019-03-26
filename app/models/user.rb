@@ -5,8 +5,12 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
   has_many :users, through: :inverse_friendships
 
+  has_many :user_restrictions
+  has_many :restrictions, through: :user_restrictions
+
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
+  before_save {username.downcase!}
 
   #Return all users who are connected to the given user via a accepted friendship or accepted inverse friendship.
   def friends
@@ -37,9 +41,11 @@ class User < ApplicationRecord
       end
     end
 
-  def num_pending_requests
-    inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
-  end
+  # def num_pending_requests
+  #   inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
+  # end
+
+
 
 
 end

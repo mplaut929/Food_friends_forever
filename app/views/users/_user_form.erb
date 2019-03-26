@@ -1,0 +1,38 @@
+<%= render "/layouts/errors" %>
+
+<div id="new_user_form">
+
+  <%= form_for @user do |f| %>
+  <p>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name%>
+  </p>
+  <p>
+  <%= f.label :username %>
+  <%= f.text_field :username%>
+  </p>
+  <p>
+  <%= f.label :profile_pic %>
+  <%= f.text_field :profile_pic %>
+  </p>
+  <p>
+  <%= f.label :age %>
+  <%= f.number_field :age%>
+  </p>
+  <p>
+  <%= f.label :city %>
+  <%= f.text_field :city%>
+  </p>
+  <p>
+  <%= f.label :bio %>
+  <%= f.text_area :bio%>
+  </p>
+  <div class="ui button">
+  <%= f.label "Please Select All THat Apply" %><br>
+  <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
+
+  <%= f.submit %>
+  </div>
+<% end %>
+
+</div>
