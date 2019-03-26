@@ -1,39 +1,57 @@
-<div id="user_profile">
+<div id ="profile_container">
 
-  <div id="profile_pic">
-    <% begin %>
-    <p><%= image_tag("#{@user.profile_pic}")%></p>
-    <% rescue %>
-    <p><%= image_tag("profile_default")%></p>
-    <% end %>
-  </div>
+  <div class="ui two column padded grid">
 
-  <div class="profile_info">
-    <h1><%= @user.first_name %></h1>
-      <p>
-        Username: <%= @user.username %><br>
-        Age: <%= @user.age %><br>
-        City: <%= @user.city %><br>
-        Bio: <%= @user.bio %><br>
-        Dietary Preferences: <% @user.restrictions.each do |restriction| %><br>
-        - <%= restriction.name %><br>
-        <% end %><br>
-        Favorite Cuisine: <%= @user.fav_cuisine.name %><br>
-        I prefer to: <%= @user.eating_location.name %><br>
-        Favorite meal: <%= @user.meal.name %><br>
-        I prefer to grocery shop at: <%= @user.shopping.name %>
-      </p>
-
-    <% if @user.id == session[:user_id] %>
-    <%= button_to "Edit Profile", edit_user_path, method: :get  %>
-    <% end %>
-
-
-    <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
-      <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
-      <% elsif !@current_user.outgoing_pending?(@user.id) && !@current_user.incoming_pending?(@user.id) && (@current_user.id != @user.id) %>
-        <p>Foodie Friend Request Pending</p>
+    <div class="column">
+      <% begin %>
+      <%= image_tag("#{@user.profile_pic}")%>
+      <% rescue %>
+      <%= image_tag("profile_default")%>
       <% end %>
+      <p>
+      <% if @user.id == session[:user_id] %>
+      <%= button_to "Edit Profile", edit_user_path, method: :get  %>
+      <% end %>
+      </p>
+    </div>
+
+    <div class="column profile_info">
+      <h1><%= @user.first_name.capitalize %></h1>
+        <p class = "profile_text" >
+          Username: <%= @user.username %><br>
+          Age: <%= @user.age %><br>
+          City: <%= @user.city %><br>
+          Bio: <%= @user.bio %><br>
+        </p>
+
+          <div class="ui divider"></div>
+
+          <h2 class = "foodie" >Foodie Facts</h2>
+          <p class = "profile_food_text" >
+          Dietary Preferences: <% @user.restrictions.each do |restriction| %>
+          - <%= restriction.name %>
+          <% end %>
+          </p>
+          <p class = "profile_food_text" >
+          Favorite Cuisine: <%= @user.fav_cuisine.name %>
+          </p>
+          <p class = "profile_food_text" >
+          I prefer to: <%= @user.eating_location.name %>
+          </p>
+          <p class = "profile_food_text" >
+          Favorite meal: <%= @user.meal.name %>
+          </p>
+          <p class = "profile_food_text" >
+          I prefer to grocery shop at: <%= @user.shopping.name %>
+          </p>
+
+      <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
+        <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
+        <% elsif !@current_user.outgoing_pending?(@user.id) && !@current_user.incoming_pending?(@user.id) && (@current_user.id != @user.id) %>
+          <p>Foodie Friend Request Pending</p>
+        <% end %>
+
+    </div>
 
   </div>
 

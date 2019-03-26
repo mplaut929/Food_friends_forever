@@ -1,16 +1,25 @@
 <h1>Friends</h1>
 
+<div class = "image-gallery">
+
 <% if @current_user.friends.empty? %>
     No friends yet
     <% else %>
     <% @current_user.friends.each do |friend| %>
 
-    <p>
+    <div class ="container">
     <% begin %>
-    <%= link_to (image_tag("#{friend.profile_pic}")), user_path(friend) %><br>
+    <%= link_to (image_tag("#{friend.profile_pic}")), user_path(friend), class: "gallery-img image"  %><br>
     <% rescue %>
-    <%= link_to (image_tag("profile_default")), user_path(friend) %><br>
+    <%= link_to (image_tag("profile_default")), user_path(friend), class: "gallery-img image"  %><br>
     <% end %>
-    <%= link_to friend.username, friend %></p>
+    <div class="middle">
+    <div class = "text" >
+    <%= link_to friend.username, friend %>
+    </div>
+    </div>
+    </div>
     <% end %>
 <% end %>
+
+</div>
