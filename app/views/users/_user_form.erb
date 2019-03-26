@@ -35,8 +35,12 @@
   <%= f.text_area :bio%>
   </p>
   <p>
-  <%= f.label "Select All That Apply" %><br>
+  <%= f.label "Select All Dietary Restrictions That Apply" %><br>
   <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
+  </p>
+  <p>
+    <%= f.label "Favorite Cuisine" %>
+    <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
   </p>
   <div class="ui button">
   <%= f.submit %>

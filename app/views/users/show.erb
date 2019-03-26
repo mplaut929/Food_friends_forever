@@ -18,6 +18,7 @@
         Dietary Preferences: <% @user.restrictions.each do |restriction| %><br>
         - <%= restriction.name %><br>
         <% end %>
+        Favorite Cuisine: <%= @user.fav_cuisine.name %>
       </p>
 
     <% if @user.id == session[:user_id] %>

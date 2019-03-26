@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :user_restrictions, dependent: :destroy
   has_many :restrictions, through: :user_restrictions
 
+  belongs_to :fav_cuisine
+
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
   before_save {username.downcase!}
