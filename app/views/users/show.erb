@@ -13,6 +13,16 @@
       <%= button_to "Edit Profile", edit_user_path, method: :get  %>
       <% end %>
       </p>
+
+
+      <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
+        <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
+        <% elsif !@current_user.outgoing_pending?(@user.id) && !@current_user.incoming_pending?(@user.id) && (@current_user.id != @user.id) %>
+        <div class ="pending_friend_text"
+          <p>Foodie Friend Request Pending</p>
+        </div>
+        <% end %>
+
     </div>
 
     <div class="column profile_info">
@@ -44,12 +54,6 @@
           <p class = "profile_food_text" >
           I prefer to grocery shop at: <%= @user.shopping.name %>
           </p>
-
-      <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
-        <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
-        <% elsif !@current_user.outgoing_pending?(@user.id) && !@current_user.incoming_pending?(@user.id) && (@current_user.id != @user.id) %>
-          <p>Foodie Friend Request Pending</p>
-        <% end %>
 
     </div>
 

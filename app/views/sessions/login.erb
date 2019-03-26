@@ -1,12 +1,15 @@
 <div class = "login_page_body">
 
   <h1>Foodie Login</h1>
-  <h4><%= flash[:notice] %></h4>
+
+  <h3><%= flash[:notice] %></h3>
 
   <div id="login_user_form">
     <div class="ui form">
 
       <%= form_tag '/login', method: :post do %>
+
+      <div class="two fields">
         <div class="field">
           <%= label_tag :username %>
           <%= text_field_tag :username, params[:username] %>
@@ -15,9 +18,9 @@
           <%= label_tag :password %>
           <%= password_field_tag :password %>
         </div>
-        <div class="ui button">
-          <%= submit_tag "submit" %>
-        </div>
+      </div>
+
+          <%= submit_tag "submit", class: "ui button" %>
       <% end %>
 
     </div>
