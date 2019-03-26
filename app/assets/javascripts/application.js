@@ -19,3 +19,11 @@
 // $(document).ready(function() {
 //     $('.ui.secondary.pointing.menu').menu();
 // });
+
+$('.ui.checkbox')
+  .checkbox()
+;
+
+$('select.dropdown')
+  .dropdown()
+;
