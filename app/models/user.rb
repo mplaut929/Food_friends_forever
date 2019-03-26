@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :restrictions, through: :user_restrictions
 
   belongs_to :fav_cuisine
+  belongs_to :eating_location
 
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
