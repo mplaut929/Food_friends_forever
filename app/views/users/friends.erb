@@ -4,6 +4,6 @@
     No friends yet
     <% else %>
     <% @current_user.friends.each do |friend| %>
-      <%= friend.username %>
+      <%= link_to friend.username, friend %>
     <% end %>
 <% end %>
