@@ -1,0 +1,8 @@
+<h1>Dietary Preferences:</h1>
+
+
+<%= form_for @user_restriction do |f| %>
+  <%= f.label "Please Select All THat Apply" %><br>
+  <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
+  <%= f.submit %>
+<% end %>

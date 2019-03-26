@@ -1,0 +1,5 @@
+class RestrictionsController < ApplicationController
+
+
+
+end

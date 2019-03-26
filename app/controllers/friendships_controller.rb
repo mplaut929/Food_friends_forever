@@ -24,10 +24,9 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    #code
-    # @friendship = Friendship.find(params[:id])
-    # @freindship.destroy
-    # redirect_to friendships_path
+    @friendship = Friendship.find(params[:id])
+    @friendship.destroy
+    redirect_to friendships_path
   end
 
   private
