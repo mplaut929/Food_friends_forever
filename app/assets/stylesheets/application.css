@@ -32,16 +32,37 @@ button {
   padding: 15px;
 }
 
+/************************* TOP NAV BAR **************************/
+
+  #top_nav {
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: yellow;
+  }
+
+  .nav_button {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
  /************************* HOME PAGE **************************/
 
- .header {
-   height: 400px;
-   background-image: url('./images/welcome_image.jpg');
+ #home_page {
+   height: 100%;
+   width: 100%;
+   background-image: url("/assets/donut.jpg");
    background-size: cover;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
+ }
+
+ #main-page-title {
+   color: white;
+   font-size: 70px;
  }
 
  /************************* NEW USER FORM **************************/

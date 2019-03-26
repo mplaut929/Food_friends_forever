@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
 
   def num_pending_requests
-    inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }.length
+    inverse_friendships.map{|friendship| friendship.friend if !friendship.accepted }
   end
 
 
