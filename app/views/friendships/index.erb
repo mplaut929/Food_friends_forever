@@ -14,7 +14,7 @@
               <% end %>
             <div class="middle">
             <div class = "text" >
-              <%= link_to ("#{friendship.user.username.capitalize}- #{User.percentage_match(friendship.user, @current_user)}% match"), friendship.user %>
+              <%= link_to ("#{User.percentage_match(friendship.user, @current_user)}% Match #{friendship.user.username.capitalize}"), friendship.user %>
             </div>
             </div>
 
@@ -31,7 +31,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <% else %>
   <p>No pending friend requests</p>
 <% end %>

@@ -11,11 +11,12 @@
       <p>
       <% if @user.id == session[:user_id] %>
       <%= button_to "Edit Profile", edit_user_path, method: :get  %>
-      <% else %>
-      <%= button_to "Chat", friendship_path(@conversation), method: :get  %>
       <% end %>
       </p>
 
+      <% if @current_user.friends.include?(@user) %>
+      <%= button_to "Chat", friendship_path(@conversation), method: :get  %>
+      <% end %>
 
       <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
         <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>

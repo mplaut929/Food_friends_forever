@@ -32,7 +32,7 @@
       <% end %>
       <div class="middle">
       <div class = "text" >
-      <%= link_to ("#{user.username.capitalize} - #{User.percentage_match(user, @current_user)}% match"), user%>
+      <%= link_to ("#{User.percentage_match(user, @current_user)}% Match #{user.username.capitalize}"), user%>
       </div>
       </div>
     </div>
