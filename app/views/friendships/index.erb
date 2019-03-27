@@ -1,11 +1,11 @@
 <h1>Pending Friends Requests</h1>
 
+<div class = "pending_requests_container">
 <% if @current_user.num_pending_requests > 0 %>
   <% @friendships.each do |friendship| %>
     <% if @current_user.id == friendship.friend_id %>
       <% if !friendship.accepted %>
 
-        <div class = "pending_requests_container">
 
             <div class ="container">
               <% begin %>
@@ -24,13 +24,14 @@
             <div class="ui buttons">
                 <button class="ui button active"><%= link_to "Accept", friendship_path(friendship), method: :post %></button>
                 <div class="or"></div>
-                <button class="ui positive button"><%= link_to "Decline", friendship_path(friendship), method: :delete, data: {confirm: "Are you sure you would like to decline this Foodie? That's kinds mean... 😢"} %></button>
+                <button class="ui positive button"><%= link_to "Decline", friendship_path(friendship), method: :delete, data: {confirm: "Are you sure you want to decline this Foodie? That's kinda mean 😢"} %></button>
             </div>
 
           </div>
         <% end %>
       <% end %>
     <% end %>
+  </div>
   <% else %>
   <p>No pending friend requests</p>
 <% end %>

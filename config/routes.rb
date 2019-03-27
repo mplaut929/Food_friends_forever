@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_restrictions, only: [:new, :create]
-  resources :friendships
+  resources :friendships, only: [:index, :create, :update, :destroy]
   resources :users
 
   get "/friends", to: "users#friends", as: "active_friends"
