@@ -15,7 +15,8 @@
       </p>
 
       <% if @current_user.friends.include?(@user) %>
-      <%= button_to "Chat with #{@user.username.capitalize}", friendship_path(@conversation), method: :get, class: "ui button foodie-button"  %>
+        <%= button_to "Chat with #{@user.username.capitalize}", friendship_path(@conversation), method: :get, class: "ui button foodie-button"  %><br>
+        <%= button_to "Unfriend", unfriend_path(@conversation), method: :delete, class: "ui button unfriend", data: {confirm: "Are you sure you want to unfriend this Foodie?" } %>
       <% end %>
 
       <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>

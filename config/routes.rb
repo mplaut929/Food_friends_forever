@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get '/analytics', to: 'users#analytics', as: "analytics"
 
+  delete "/friendships/:id", to: "friendships#unfriend", as: 'unfriend'
+
 end

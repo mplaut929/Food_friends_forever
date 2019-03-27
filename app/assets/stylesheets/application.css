@@ -283,7 +283,16 @@
    font-weight: bold;
  }
 
+ .column .unfriend {
+   float: center;
+   align-items: center;
+   background-color: #D01D43;
+   color: white;
+ }
+
  .column .foodie-button {
+   float: center;
+   align-items: center;
    background-color: #6FCEDB;
    color: white;
  }
