@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   post '/conversation/:id/messages', to: 'messages#create', as: 'messages'
 
+  get '/analytics', to: 'users#analytics', as: "analytics"
+
 end

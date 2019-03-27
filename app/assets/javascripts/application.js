@@ -14,7 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
+//= require Chart.bundle
+//= require chartkick
 
 // $(document).ready(function() {
 //     $('.ui.secondary.pointing.menu').menu();
