@@ -15,7 +15,7 @@
         <% end %>
       <div class="middle">
       <div class = "text" >
-        <%= link_to friendship.user.username.capitalize, friendship.user %>
+        <%= link_to ("#{friendship.user.username.capitalize}- #{User.percentage_match(friendship.user, @current_user)}% match"), friendship.user %>
       </div>
       </div>
         <p><%= friendship.user.username.capitalize %> wants to be your friend
