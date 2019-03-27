@@ -66,4 +66,35 @@ class User < ApplicationRecord
       end
   end
 
+
+  def self.percentage_match(user1, user2)
+    count = 0
+    if user1.age == user2.age
+      count += 1
+    end
+    if user1.city == user2.city
+      count +=1
+    end
+    # elsif user1.restrictions == user2.restrictions
+    #   count +=1
+    if user1.fav_cuisine == user2.fav_cuisine
+      count +=1
+    end
+    if user1.eating_location == user2.eating_location
+      count +=1
+    end
+    if user1.meal == user2.meal
+      count +=1
+    end
+    if user1.shopping == user2.shopping
+      count +=1
+    end
+    if count > 0
+      return (count.to_f/6) * 100
+    else
+      return 0
+    end
+
+  end
+
 end
