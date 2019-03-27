@@ -28,6 +28,7 @@ before_action :logged_in?, only: [:show, :edit]
   def show
     current_user
     @user = User.find(params[:id])
+    @conversation = Friendship.find_by(user_id: current_user.id, friend_id: params[:id]) || Friendship.find_by(user_id: params[:id], friend_id: current_user.id)
   end
 
   def friends

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :user_restrictions, only: [:new, :create]
-  resources :friendships, only: [:index, :create, :update, :destroy]
-  resources :users
+  resources :friendships, only: [:index, :show, :create, :update, :destroy]
+  resources :users, only: [:index, :new, :create, :show, :edit, :update]
 
   get "/friends", to: "users#friends", as: "active_friends"
 
@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   post '/users/:id', to: 'friendships#create'
 
   post '/friendships/:id', to: "friendships#update"
+
+  post '/conversation/:id/messages', to: 'messages#create', as: 'messages'
 
 end
