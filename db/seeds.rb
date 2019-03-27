@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Restriction.create(name: "Vegan🥦")
-Restriction.create(name: "Vegetarian🥕")
-Restriction.create(name: "Gluten Free🍞❌")
-Restriction.create(name: "Pescatarian🍣")
-Restriction.create(name: "None🍽")
+Restriction.create(name: "🥦 Vegan")
+Restriction.create(name: "🥕 Vegetarian")
+Restriction.create(name: "🍞❌ Gluten-Free")
+Restriction.create(name: "🍣 Pescatarian")
+# Restriction.create(name: "None🍽")
 
 FavCuisine.create(name: "American")
 FavCuisine.create(name: "Chinese")

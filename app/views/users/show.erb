@@ -10,16 +10,16 @@
       <% end %>
       <p>
       <% if @user.id == session[:user_id] %>
-      <%= button_to "Edit Profile", edit_user_path, method: :get  %>
+      <%= button_to "Edit Profile", edit_user_path, method: :get, class: "ui button foodie-button" %>
       <% end %>
       </p>
 
       <% if @current_user.friends.include?(@user) %>
-      <%= button_to "Chat", friendship_path(@conversation), method: :get  %>
+      <%= button_to "Chat with #{@user.username.capitalize}", friendship_path(@conversation), method: :get, class: "ui button foodie-button"  %>
       <% end %>
 
       <% if (!@current_user.incoming_requests(@user.id) && !@current_user.outgoing_requests(@user.id)) && (@current_user.id != @user.id)  %>
-        <%= button_to "Add Foodie Friend", user_path(@user), method: :post%>
+        <%= button_to "Add Foodie Friend", user_path(@user), method: :post, class: "ui button foodie-button" %>
         <% elsif !@current_user.outgoing_pending?(@user.id) && !@current_user.incoming_pending?(@user.id) && (@current_user.id != @user.id) %>
         <div class ="pending_friend_text"
           <p>Foodie Friend Request Pending</p>
@@ -42,7 +42,7 @@
           <h2 class = "foodie" >Foodie Facts</h2>
           <p class = "profile_food_text" >
           Dietary Preferences: <% @user.restrictions.each do |restriction| %>
-          - <%= restriction.name %>
+          <%= restriction.name %>
           <% end %>
           </p>
           <p class = "profile_food_text" >
