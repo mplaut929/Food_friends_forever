@@ -101,4 +101,42 @@ class User < ApplicationRecord
 
   end
 
+  def self.meal_count
+    meal_hash = {}
+    User.all.each do |user|
+      meal_hash[user.meal.name] ||= 0
+        meal_hash[user.meal.name] += 1
+    end
+    meal_hash
+  end
+
+  def self.shopping_count
+    shopping_hash = {}
+    User.all.each do |user|
+      shopping_hash[user.shopping.name] ||= 0
+        shopping_hash[user.shopping.name] += 1
+    end
+    shopping_hash
+  end
+
+  def self.fav_cuisine_count
+    fav_cuisine_hash = {}
+    User.all.each do |user|
+      fav_cuisine_hash[user.fav_cuisine.name] ||= 0
+        fav_cuisine_hash[user.fav_cuisine.name] += 1
+    end
+    fav_cuisine_hash
+  end
+
+  def self.eating_location_count
+    eating_location_hash = {}
+    User.all.each do |user|
+      eating_location_hash[user.eating_location.name] ||= 0
+        eating_location_hash[user.eating_location.name] += 1
+    end
+    eating_location_hash
+  end
+
+
+
 end

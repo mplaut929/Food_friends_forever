@@ -62,6 +62,10 @@ before_action :logged_in?, only: [:show, :edit]
     end
   end
 
+  def analytics
+    render :analytics
+  end
+
 private
 
   def user_params

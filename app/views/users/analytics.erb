@@ -1,0 +1,7 @@
+<%= pie_chart User.group(:age).count %>
+<%= pie_chart User.group(:city).count %>
+<%= line_chart Message.group_by_hour(:created_at).count %>
+
+<%= pie_chart User.meal_count %>
+
+<%= column_chart User.shopping_count %>
