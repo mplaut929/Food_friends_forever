@@ -1,31 +1,36 @@
 <h1>Pending Friends Requests</h1>
 
-<div class = "image-gallery">
-
 <% if @current_user.num_pending_requests > 0 %>
   <% @friendships.each do |friendship| %>
     <% if @current_user.id == friendship.friend_id %>
       <% if !friendship.accepted %>
 
-      <div class ="container">
-        <% begin %>
-        <%= link_to (image_tag("#{friendship.user.profile_pic}")), user_path(friendship.user), class: "gallery-img image"  %><br>
-        <% rescue %>
-        <%= link_to (image_tag("profile_default")), user_path(friendship.user), class: "gallery-img image"  %><br>
-        <% end %>
-      <div class="middle">
-      <div class = "text" >
-        <%= link_to friendship.user.username.capitalize, friendship.user %>
-      </div>
-      </div>
-        <p><%= friendship.user.username.capitalize %> wants to be your friend
-          <%= button_to "ACCEPT FOODIE 🍩", friendship_path(friendship) %>
-          <%= button_to "DECLINE", friendship_path(friendship), method: :delete, data: {confirm: "Really? That's kinds mean... 😢"} %>
-        </p>
-        </div>
-          <% end %>
+        <div class = "pending_requests_container">
+
+            <div class ="container">
+              <% begin %>
+              <%= link_to (image_tag("#{friendship.user.profile_pic}")), user_path(friendship.user), class: "gallery-img image"  %><br>
+              <% rescue %>
+              <%= link_to (image_tag("profile_default")), user_path(friendship.user), class: "gallery-img image"  %><br>
+              <% end %>
+            <div class="middle">
+            <div class = "text" >
+              <%= link_to friendship.user.username.capitalize, friendship.user %>
+            </div>
+            </div>
+
+            <p><%= friendship.user.username.capitalize %> wants to be your friend</p>
+
+            <div class="ui buttons">
+                <button class="ui button active"><%= link_to "Accept", friendship_path(friendship), method: :post %></button>
+                <div class="or"></div>
+                <button class="ui positive button"><%= link_to "Decline", friendship_path(friendship), method: :delete, data: {confirm: "Are you sure you would like to decline this Foodie? That's kinds mean... 😢"} %></button>
+            </div>
+
+          </div>
         <% end %>
       <% end %>
+    <% end %>
   <% else %>
   <p>No pending friend requests</p>
 <% end %>
