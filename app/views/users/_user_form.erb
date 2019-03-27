@@ -51,15 +51,16 @@
       <%= f.label "Select All Dietary Restrictions That Apply" %><br>
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0" class="hidden">
-          <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %>
+          <label><%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %></label>
         </div>
       </div>
       <!-- <div class="field"> -->
       <%= f.label "Favorite Cuisine" %>
         <!-- <div class="ui selection dropdown">
+          <input type="hidden" name="cuisine">
           <i class = "dropdown icon"></i>
           <div class="menu"> -->
-          <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true) %>
+            <%= f.collection_select(:fav_cuisine_id, @fav_cuisines, :id, :name, prompt: true)%>
           <!-- </div>
         </div>
       </div> -->
