@@ -50,8 +50,8 @@
       <div class="inline field">
       <%= f.label "Select All Dietary Restrictions That Apply" %><br>
       <div class="ui checkbox">
-        <input type="checkbox">
-          <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %><br>
+        <input type="checkbox" tabindex="0" class="hidden">
+          <%= f.collection_check_boxes(:restriction_ids, @restrictions, :id, :name) %>
         </div>
       </div>
       <!-- <div class="field"> -->
@@ -68,10 +68,10 @@
       <%= f.label "Favorite Meal:" %>
       <%= f.collection_select(:meal_id, @meals, :id, :name, prompt: true) %>
       <%= f.label "Where would you prefer to grocery shop?" %>
-      <%= f.collection_select(:shopping_id, @shoppings, :id, :name, prompt: true) %>
-      <div class="ui button">
-      <%= f.submit %>
-      </div>
+      <%= f.collection_select(:shopping_id, @shoppings, :id, :name, prompt: true) %><br>
+      <button class="ui button" type="submit">
+      Submit
+      </button>
     <% end %>
 
     </div>
