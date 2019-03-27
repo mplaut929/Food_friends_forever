@@ -133,6 +133,7 @@
 
   .new_user_form .foodie-button {
     background-color: #6FCEDB;
+    color: white;
   }
 
  /************************* NEW USER FORM **************************/
@@ -212,6 +213,12 @@
     display: flex;
     justify-content: center;
   }
+
+  .login_page_body .foodie-button {
+    background-color: #6FCEDB;
+    color: white;
+  }
+
   /************************* CHAT PAGE **************************/
 
     .chat-page {
