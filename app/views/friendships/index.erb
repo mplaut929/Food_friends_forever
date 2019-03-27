@@ -6,6 +6,24 @@
     <% if @current_user.id == friendship.friend_id %>
       <% if !friendship.accepted %>
 
+      <div class ="container">
+        <% begin %>
+        <%= link_to (image_tag("#{friendship.user.profile_pic}")), user_path(friendship.user), class: "gallery-img image"  %><br>
+        <% rescue %>
+        <%= link_to (image_tag("profile_default")), user_path(friendship.user), class: "gallery-img image"  %><br>
+        <% end %>
+      <div class="middle">
+      <div class = "text" >
+        <%= link_to ("#{friendship.user.username.capitalize}- #{User.percentage_match(friendship.user, @current_user)}% match"), friendship.user %>
+      </div>
+      </div>
+        <p><%= friendship.user.username.capitalize %> wants to be your friend
+          <%= button_to "ACCEPT FOODIE 🍩", friendship_path(friendship) %>
+          <%= button_to "DECLINE", friendship_path(friendship), method: :delete, data: {confirm: "Really? That's kinds mean... 😢"} %>
+        </p>
+        </div>
+          <% end %>
+
 
             <div class ="container">
               <% begin %>

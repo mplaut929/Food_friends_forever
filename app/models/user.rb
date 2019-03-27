@@ -75,8 +75,9 @@ class User < ApplicationRecord
     if user1.city == user2.city
       count +=1
     end
-    # elsif user1.restrictions == user2.restrictions
-    #   count +=1
+    if !(user1.restrictions & user2.restrictions).empty?
+      count +=1
+    end
     if user1.fav_cuisine == user2.fav_cuisine
       count +=1
     end
@@ -90,7 +91,7 @@ class User < ApplicationRecord
       count +=1
     end
     if count > 0
-      return (count.to_f/6) * 100
+      return ((count.to_f/7) * 100).to_i
     else
       return 0
     end
