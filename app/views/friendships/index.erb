@@ -1,6 +1,7 @@
 <h1>Pending Friends Requests</h1>
 
 <div class = "pending_requests_container">
+
 <% if @current_user.num_pending_requests > 0 %>
   <% @friendships.each do |friendship| %>
     <% if @current_user.id == friendship.friend_id %>
@@ -30,6 +31,7 @@
       <% end %>
     <% end %>
   </div>
+  
   <% else %>
   <p>No pending friend requests</p>
 <% end %>

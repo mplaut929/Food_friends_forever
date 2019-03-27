@@ -13,6 +13,9 @@ class User < ApplicationRecord
   belongs_to :meal
   belongs_to :shopping
 
+  has_many :messages, dependent: :destroy
+  has_many :converations, through: :messages
+
   validates :username, uniqueness: true
   validates :first_name, :username, :city, :age, presence: true
   before_save {username.downcase!}

@@ -4,18 +4,17 @@ class FriendshipsController < ApplicationController
     @friendships = Friendship.all
   end
 
-  # def new
-  #   #code
-  # end
+  def show
+    current_user
+    @conversation = Friendship.find(params[:id])
+    @message = Message.new
+    @messages = Message.all
+  end
 
   def create
     Friendship.add_friend(current_user.id, params[:id])
     redirect_to user_path(params[:id])
   end
-
-  # def edit
-  #   #code
-  # end
 
   def update
     @friendship = Friendship.find(params[:id])

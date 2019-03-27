@@ -1,0 +1,32 @@
+<div class ="chat-page">
+
+  <h3>
+    Chat with
+    <% if @conversation.user_id == @current_user.id %>
+      <%= @conversation.friend.username.capitalize %>
+      <% else %>
+      <%= @conversation.user.username.capitalize %>
+    <% end %>
+  </h3>
+
+    <div class="conversation">
+      <% @messages.each do |message| %>
+        <% if message.conversation_id == @conversation.id %>
+          <p>
+            <%= message.username %> says:<br>
+            <%= message.message %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+  <br><br>
+
+    <div class = "chat_message_form" >
+      <%= form_tag messages_path(@conversation.id), method: :post do %>
+        <%= text_field_tag :message %><br><br>
+        <%= submit_tag "Send Message" %>
+      <% end %>
+    </div>
+
+</div>

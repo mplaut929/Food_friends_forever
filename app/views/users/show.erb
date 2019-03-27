@@ -11,6 +11,8 @@
       <p>
       <% if @user.id == session[:user_id] %>
       <%= button_to "Edit Profile", edit_user_path, method: :get  %>
+      <% else %>
+      <%= button_to "Chat", friendship_path(@conversation), method: :get  %>
       <% end %>
       </p>
 

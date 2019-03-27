@@ -2,6 +2,8 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: "User"
 
+  has_many :users, through: :messages
+
   validates :user_id, uniqueness: { scope: :friend_id}
 
 
