@@ -6,11 +6,7 @@
 <% @users.each do |user| %>
   <% if user != @current_user %>
       <div class ="container">
-        <% begin %>
-        <%= link_to (image_tag("#{user.profile_pic}")), user_path(user), class: "gallery-img image" %><br>
-        <% rescue %>
-        <%= link_to image_tag("profile_default"), user_path(user), class: "gallery-img image" %><br>
-        <% end %>
+        <%= link_to (image_tag("#{user.avatar_pic}")), user_path(user), class: "gallery-img image" %><br>
       <div class="middle">
       <div class = "text" >
         <%= link_to user.username.capitalize, user%>
@@ -25,11 +21,7 @@
 <% @users.each do |user| %>
   <% if user != @current_user && !@current_user.friends.include?(user) %>
       <div class ="container">
-      <% begin %>
-      <%= link_to (image_tag("#{user.profile_pic}")), user_path(user), class: "gallery-img image" %><br>
-      <% rescue %>
-      <%= link_to image_tag("profile_default"), user_path(user), class: "gallery-img image" %><br>
-      <% end %>
+      <%= link_to (image_tag("#{user.avatar_pic}")), user_path(user), class: "gallery-img image" %><br>
       <div class="middle">
       <div class = "text" >
       <%= link_to ("#{User.percentage_match(user, @current_user)}% Match #{user.username.capitalize}"), user%>
