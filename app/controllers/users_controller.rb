@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :logged_in?, only: [:show, :edit]
 
   def index
+    # byebug
     if @current_user != nil
       @users = User.sorted_users(params[:sort_by], @current_user)
     else

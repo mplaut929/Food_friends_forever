@@ -20,6 +20,8 @@
 
  body {
    text-align: center;
+   height: 100vh;
+
   }
 
  button a {
@@ -27,10 +29,11 @@
   font-size: 20px;
   color: white;
   }
-
+/*
   button {
     padding: 15px;
-  }
+  } */
+
 
 /************************* TOP NAV BAR **************************/
 
@@ -46,6 +49,48 @@
   #top_nav a:hover, a:active {
   color: black;
   }
+
+  /************************* ABOUT US PAGE **************************/
+
+   .about-us-page {
+     height: 100%;
+     width: 100%;
+     background-image: url("/assets/strawberry.jpg");
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+   }
+
+   .about-us-page p {
+     font-size: 20px;
+   }
+
+   .about-us-page h1 {
+     color: white;
+   }
+ /************************* TOP NAV BAR **************************/
+
+ #footer-container {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+ }
+
+ #footer_nav {
+   width: 100%;
+   background-color: #6FCEDB;
+ }
+
+ #footer_nav a, a:visited {
+   color: white;
+ }
+
+ #footer_nav a:hover, a:active {
+ color: black;
+ }
 
  /************************* HOME PAGE **************************/
 
@@ -217,7 +262,7 @@
   .restricted-page {
     height: 100%;
     width: 100%;
-    background-image: url("/assets/strawberry.jpg");
+    background-image: url("/assets/pasta.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -231,7 +276,7 @@
   .login_page_body {
     height: 100%;
     width: 100%;
-    background-image: url("/assets/pasta.jpg");
+    background-image: url("/assets/welcome_image2.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -252,21 +297,31 @@
     color: white;
   }
 
+  .username-field{
+  color: white;
+  margin-bottom: 5px;
+  }
+
   /************************* CHAT PAGE **************************/
 
     .chat-page {
       height: 100%;
       width: 100%;
-      /* background-size: cover; */
+      background-image: url("/assets/chat-page.jpg");
+      background-size: cover;
       display: flex;
       justify-content: top;
       align-items: center;
       flex-direction: column;
+    }
+
+    .chat-page h1{
       margin-top: 30px;
     }
 
     .conversation {
       border: 1px solid #6FCEDB;
+      background: white;
       border-radius: 25px;
       padding: 2%;
       width: 40%;
@@ -276,6 +331,11 @@
       text-align: left;
       color: black;
       overflow: auto;
+    }
+
+    .chat-message{
+      width: 450px;
+      align-items: center;
     }
 
     .conversation .username {
