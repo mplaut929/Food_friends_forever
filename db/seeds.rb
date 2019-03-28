@@ -47,7 +47,10 @@ Avatar.find_or_create_by(name: "pineapple.jpg", title: "Cool pineapple")
 Avatar.find_or_create_by(name: "pineapple2.jpg", title: "Smaller, cool pineapple")
 Avatar.find_or_create_by(name: "profile_default.jpg", title: "Happy Toast")
 Avatar.find_or_create_by(name: "profile2.jpg", title: "Fox on Toast")
-#
+Avatar.find_or_create_by(name: "donut-face.jpg", title: "Donut Face")
+Avatar.find_or_create_by(name: "gummy.jpg", title: "King Gummy Bear")
+
+
 # User.find_or_create_by(first_name: "Tali", username: "tali", age: 32, city: "Denver", password_digest: "1", fav_cuisine_id: 51, eating_location_id: 13, meal_id: 16, shopping_id: 19, avatar_id: 1)
 # User.find_or_create_by(first_name: "Matt", username: "matt", age: 28, city: "NYC", password_digest: "1", fav_cuisine_id: 52, eating_location_id: 14, meal_id: 16, shopping_id: 20, avatar_id: 2)
 # User.find_or_create_by(first_name: "Naomi", username: "naomi", age: 29, city: "Miami", password_digest: "1", fav_cuisine_id: 52, eating_location_id: 15, meal_id: 19, shopping_id: 21, avatar_id: 3)
