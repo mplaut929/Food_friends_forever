@@ -10,7 +10,7 @@ Restriction.find_or_create_by(name: "🥦 Vegan")
 Restriction.find_or_create_by(name: "🥕 Vegetarian")
 Restriction.find_or_create_by(name: "🍞❌ Gluten-Free")
 Restriction.find_or_create_by(name: "🍣 Pescatarian")
-# Restriction.create(name: "None🍽")
+# Restriction.create(name: "None")
 
 FavCuisine.find_or_create_by(name: "American")
 FavCuisine.find_or_create_by(name: "Chinese")

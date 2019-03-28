@@ -1,7 +1,44 @@
-<%= pie_chart User.group(:age).count %>
-<%= pie_chart User.group(:city).count %>
-<%= line_chart Message.group_by_hour(:created_at).count %>
+<div class ="analytics-page-body">
 
-<%= pie_chart User.meal_count %>
+  <h1>Foodie Analytics</h1>
 
-<%= column_chart User.shopping_count %>
+  <div class="ui horizontal segments">
+    <div class="ui segment">
+      <h2>Age</h2>
+      <%= pie_chart User.group(:age).count %>
+    </div>
+    <div class="ui segment">
+      <h2>City</h2>
+      <%= pie_chart User.group(:city).count %>
+    </div>
+    <div class="ui segment">
+      <h2>Favorite Meals</h2>
+      <%= pie_chart User.meal_count %>
+    </div>
+  </div>
+
+  <div class="charts">
+    <h2>User Message Activity</h2>
+    <%= line_chart Message.group_by_hour(:created_at).count %>
+  </div>
+  <div class="charts">
+    <h2>Favorite Cuisines</h2>
+    <%= bar_chart User.fav_cuisine_count %>
+  </div>
+
+  <div class="ui horizontal segments">
+    <div class="ui segment">
+      <h2>Shopping Preferences</h2>
+      <%= pie_chart User.shopping_count %>
+    </div>
+    <div class="ui segment">
+      <h2>Avatar Popularity</h2>
+      <%= pie_chart User.avatar_count %>
+    </div>
+    <div class="ui segment">
+      <h2>Eating Locations</h2>
+      <%= pie_chart User.eating_location_count %>
+    </div>
+  </div>
+
+</div>
