@@ -182,16 +182,19 @@
     vertical-align: -10px;
    }
 
-  /* .checkbox-list input[type="checkbox"] {
-    display: inline-block;
-    width: 10%;
-  }
+  /************************* RESTRICTED PAGES **************************/
 
-  .checkbox-list input[type="checkbox"] + label {
-    display: inline-block;
-    margin-left: 1px;
-    width: 80%;
-  } */
+  .restricted-page {
+    height: 100%;
+    width: 100%;
+    background-image: url("/assets/strawberry.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+  }
 
   /************************* LOGIN PAGE **************************/
 
@@ -295,4 +298,20 @@
    align-items: center;
    background-color: #6FCEDB;
    color: white;
+ }
+
+ .pending_requests_container .container .accept {
+   background-color: #6FCEDB;
+ }
+
+  .pending_requests_container .container .accept:hover {
+    background-color: lightgray;
+  }
+
+ .pending_requests_container .container .decline {
+   background-color: #D01D43;
+ }
+
+ .pending_requests_container .container .decline:hover {
+   background-color: lightgray;
  }

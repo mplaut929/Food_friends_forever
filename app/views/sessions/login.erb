@@ -2,7 +2,11 @@
 
   <h1>Foodie Login</h1>
 
-  <h3><%= flash[:notice] %></h3>
+  <div class="ui orange messsage">
+    <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
 
   <div id="login_user_form">
     <div class="ui form">
