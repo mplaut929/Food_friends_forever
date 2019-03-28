@@ -73,7 +73,7 @@
  /************************* TOP NAV BAR **************************/
 
  #footer-container {
-   position: fixed;
+   position: auto;
    left: 0;
    bottom: 0;
    width: 100%;
@@ -123,6 +123,17 @@
 
  /************************* Index and Friend Galleries **************************/
 
+ .galler-pages-containers {
+   margin-top: 30px;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   /* justify-content: center;
+   align-items: center; */
+   flex-direction: column;
+ }
+
+
  .sort_form{
    width: 100%;
    text-align: left;
@@ -147,7 +158,6 @@
 
   .container {
     position: relative;
-    /* width: 50%; */
   }
 
   .image {
@@ -249,6 +259,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 30px;
+    margin-bottom: 100px;
   }
 
   .analytics-page-body .charts {
@@ -349,6 +360,9 @@
    margin-bottom: 5%;
    margin-right: 10%;
    margin-left: 10%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
  }
 
  .profile_picture_box {
@@ -388,6 +402,18 @@
    align-items: center;
    background-color: #6FCEDB;
    color: white;
+ }
+
+ /************************* PENDING FRIENDS PAGE **************************/
+
+ .pending-page-container {
+   margin-top: 30px;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   /* justify-content: center;
+   align-items: center; */
+   flex-direction: column;
  }
 
  .pending_requests_container .container .accept {
