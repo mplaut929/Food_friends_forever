@@ -3,6 +3,9 @@ before_action :logged_in?, only: [:show, :edit]
 
   def index
     @users = User.all
+    if @current_user != nil
+      @sorted_users = User.sorted_users(@current_user).reverse
+    end
   end
 
   def new
@@ -19,7 +22,7 @@ before_action :logged_in?, only: [:show, :edit]
     @user = User.create(user_params)
     session[:user_id] = @user.id
     if @user.valid?
-      redirect_to user_path(@user)
+      redirect_to users_path
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path

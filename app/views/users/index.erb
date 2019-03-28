@@ -18,7 +18,7 @@
 </div>
 <% else  %>
 <div class = "image-gallery">
-<% @users.each do |user| %>
+<% @sorted_users.each do |user| %>
   <% if user != @current_user && !@current_user.friends.include?(user) %>
       <div class ="container">
       <%= link_to (image_tag("#{user.avatar_pic}")), user_path(user), class: "gallery-img image" %><br>
