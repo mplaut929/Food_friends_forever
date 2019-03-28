@@ -141,6 +141,15 @@ class User < ApplicationRecord
     eating_location_hash
   end
 
+  def self.avatar_count
+    avatar_hash = {}
+    User.all.each do |user|
+      avatar_hash[user.avatar.name] ||= 0
+        avatar_hash[user.avatar.name] += 1
+    end
+    avatar_hash
+  end
+
   def avatar_pic
     self.avatar.name
   end

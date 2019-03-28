@@ -13,7 +13,11 @@
       <% @messages.each do |message| %>
         <% if message.conversation_id == @conversation.id %>
             <div class="username">
-              <%= message.username %> (<%= message.created_at.strftime("%b %d, %Y %l:%M") %>)<br>
+              <a class="ui image label">
+                <%= image_tag("#{message.user.avatar_pic}") %>
+                <%= message.username %>
+              </a>
+              <%= message.created_at.strftime("%b %d, %Y %l:%M") %><br>
             </div>
             <%= message.message %><br><br>
         <% end %>
