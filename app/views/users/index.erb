@@ -17,19 +17,19 @@
 <% end %>
 </div>
 <% else  %>
-<div class = "image-gallery">
-  <%= render "sort_form" %><br>
-<% @sorted_users.each do |user| %>
-  <% if user != @current_user && !@current_user.friends.include?(user) %>
-      <div class ="container">
-      <%= link_to (image_tag("#{user.avatar_pic}")), user_path(user), class: "gallery-img image" %><br>
-      <div class="middle">
-      <div class = "text" >
-      <%= link_to ("#{User.percentage_match(user, @current_user)}% Match #{user.username.capitalize}"), user%>
+<p><%= render "sort_form" %></p>
+  <div class = "image-gallery">
+  <% @users.each do |user| %>
+    <% if user != @current_user && !@current_user.friends.include?(user) %>
+        <div class ="container">
+        <%= link_to (image_tag("#{user.avatar_pic}")), user_path(user), class: "gallery-img image" %><br>
+        <div class="middle">
+        <div class = "text" >
+        <%= link_to ("#{User.percentage_match(user, @current_user)}% Match #{user.username.capitalize}"), user%>
+        </div>
+        </div>
       </div>
-      </div>
-    </div>
-    <% end %>
-<% end %>
+      <% end %>
+  <% end %>
 </div>
 <% end %>

@@ -1,4 +1,12 @@
-<%= form_tag users_path, method: :get do %>
-  <%= select_tag "sort_by", "<option>Percentage Match</option><option>Age</option><option>City</option><option>Newest</option>".html_safe%>
-  <%= submit_tag "Sort" %>
-<% end %>
+<div class="sort_form">
+
+  <div class="ui form">
+  <%= form_tag users_path, method: :get do %>
+    <div class="field sort-field">
+      <%= select_tag "sort_by", "<option>Sort by</opton><option>Percentage Match</option><option>Age</option><option>City</option><option>Newest</option>".html_safe, class: "ui search dropdown" %>
+    </div>
+    <%= submit_tag "Sort", class: "ui button foodie-button sort-field" %>
+  <% end %>
+
+  </div>
+</div>

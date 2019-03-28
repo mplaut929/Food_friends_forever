@@ -78,6 +78,19 @@
 
  /************************* Index and Friend Galleries **************************/
 
+ .sort_form{
+   width: 100%;
+   text-align: left;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 4%;
+ }
+
+ .sort-field{
+   float:left;
+   padding-right: 10px;
+ }
+
   .image-gallery {
     align-items: center;
     justify-items: center;
