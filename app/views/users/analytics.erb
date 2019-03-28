@@ -1,10 +1,7 @@
-<h2>Age</h2>
 <%= pie_chart User.group(:age).count %>
-<h2>City</h2>
 <%= pie_chart User.group(:city).count %>
-<h2>Chat Activity</h2>
 <%= line_chart Message.group_by_hour(:created_at).count %>
-<h2>Favorite Meals</h2>
+
 <%= pie_chart User.meal_count %>
-<h2>Favorite Shopping Locations</h2>
+
 <%= column_chart User.shopping_count %>

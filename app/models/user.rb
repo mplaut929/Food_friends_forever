@@ -12,6 +12,7 @@ class User < ApplicationRecord
   belongs_to :eating_location
   belongs_to :meal
   belongs_to :shopping
+  belongs_to :avatar
 
   has_many :messages, dependent: :destroy
   has_many :converations, through: :messages
@@ -93,8 +94,11 @@ class User < ApplicationRecord
     if user1.shopping == user2.shopping
       count +=1
     end
+    if user1.avatar == user2.avatar
+      count +=1
+    end
     if count > 0
-      return ((count.to_f/7) * 100).to_i
+      return ((count.to_f/8) * 100).to_i
     else
       return 0
     end
@@ -135,6 +139,10 @@ class User < ApplicationRecord
         eating_location_hash[user.eating_location.name] += 1
     end
     eating_location_hash
+  end
+
+  def avatar_pic
+    self.avatar.name
   end
 
 

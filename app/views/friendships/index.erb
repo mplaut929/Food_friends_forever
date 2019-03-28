@@ -9,11 +9,7 @@
       <% if @current_user.id == friendship.friend_id %>
         <% if !friendship.accepted %>
               <div class ="container">
-                <% begin %>
-                <%= link_to (image_tag("#{friendship.user.profile_pic}")), user_path(friendship.user), class: "gallery-img image"  %><br>
-                <% rescue %>
-                <%= link_to (image_tag("profile_default")), user_path(friendship.user), class: "gallery-img image"  %><br>
-                <% end %>
+                <%= link_to (image_tag("#{friendship.user.avatar_id}")), user_path(friendship.user), class: "gallery-img image"  %><br>
               <div class="middle">
               <div class = "text" >
                 <%= link_to ("#{User.percentage_match(friendship.user, @current_user)}% Match #{friendship.user.username.capitalize}"), friendship.user %>

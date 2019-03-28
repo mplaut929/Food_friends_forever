@@ -12,6 +12,7 @@ before_action :logged_in?, only: [:show, :edit]
     @eating_locations = EatingLocation.all
     @meals = Meal.all
     @shoppings = Shopping.all
+    @avatars = Avatar.all
   end
 
   def create
@@ -41,6 +42,7 @@ before_action :logged_in?, only: [:show, :edit]
     @eating_locations = EatingLocation.all
     @meals = Meal.all
     @shoppings = Shopping.all
+    @avatars = Avatar.all
     current_user
     @user = User.find(params[:id])
   end
@@ -51,6 +53,7 @@ before_action :logged_in?, only: [:show, :edit]
     @eating_locations = EatingLocation.all
     @meals = Meal.all
     @shoppings = Shopping.all
+    @avatars = Avatar.all
     current_user
     @user = User.find(params[:id])
     @user.update(user_params)
@@ -69,7 +72,7 @@ before_action :logged_in?, only: [:show, :edit]
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, :password, :shopping_id, :meal_id, :eating_location_id, :fav_cuisine_id, restriction_ids: [])
+    params.require(:user).permit(:first_name, :username, :age, :city, :bio, :profile_pic, :password, :avatar_id, :shopping_id, :meal_id, :eating_location_id, :fav_cuisine_id, restriction_ids: [])
   end
 
 end

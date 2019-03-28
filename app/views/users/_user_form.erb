@@ -29,8 +29,8 @@
 
       <div class="three fields">
         <div class="field">
-          <%= f.label :profile_pic_url %>
-          <%= f.text_field :profile_pic %>
+          <%= f.label :avatar_id %>
+          <%= f.collection_select :avatar_id, @avatars, :id, :title, {prompt: true}, {class: "ui search inline dropdown"} %>
         </div>
         <div class="field">
           <%= f.label :age %>

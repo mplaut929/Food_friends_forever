@@ -3,11 +3,7 @@
   <div class="ui two column padded grid">
 
     <div class="column">
-      <% begin %>
-      <%= image_tag("#{@user.profile_pic}")%>
-      <% rescue %>
-      <%= image_tag("profile_default")%>
-      <% end %>
+      <%= image_tag("#{@user.avatar_pic}")%>
       <p>
       <% if @user.id == session[:user_id] %>
       <%= button_to "Edit Profile", edit_user_path, method: :get, class: "ui button foodie-button" %>
