@@ -18,6 +18,7 @@
 </div>
 <% else  %>
 <div class = "image-gallery">
+  <%= render "sort_form" %><br>
 <% @sorted_users.each do |user| %>
   <% if user != @current_user && !@current_user.friends.include?(user) %>
       <div class ="container">

@@ -4,7 +4,7 @@ before_action :logged_in?, only: [:show, :edit]
   def index
     @users = User.all
     if @current_user != nil
-      @sorted_users = User.sorted_users(@current_user).reverse
+      @sorted_users = User.sorted_users(params[:sort_by], @current_user).reverse
     end
   end
 

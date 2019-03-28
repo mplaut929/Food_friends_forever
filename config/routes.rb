@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 
   delete "/friendships/:id", to: "friendships#unfriend", as: 'unfriend'
 
+  # post '/users', to: 'users#index', as: 'sort'
+
 end

@@ -155,14 +155,23 @@ class User < ApplicationRecord
   end
 
 
-  def self.sorted_users(user2)
-    sorted_users = {}
-    User.all.each do |user|
-      percent = User.percentage_match(user, user2)
-      sorted_users[user] ||= percent
+  def self.sorted_users(sort, user2)
+
+    if sort == "Percentage Match"
+      sorted_users = {}
+      User.all.each do |user|
+        percent = User.percentage_match(user, user2)
+        sorted_users[user] ||= percent
+      end
+      sorted_users.sort_by {|key, val| val}
+      sorted_users.keys
+    elsif sort == "Age"
+      User.order(age: :desc)
+    elsif sort == "City"
+      User.order(city: :desc)
+    else
+      User.all
     end
-    sorted_users.sort_by {|key, val| val}
-    sorted_users.keys
   end
 
 
