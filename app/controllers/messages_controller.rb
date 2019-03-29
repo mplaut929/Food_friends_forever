@@ -3,7 +3,15 @@ class MessagesController < ApplicationController
   def create
     @conversation = Friendship.find(params[:id])
     Message.create(user_id: current_user.id, message: params[:message], conversation_id: @conversation.id )
-    redirect_to friendship_path(@conversation)
+    # message.user = current_user
+    #
+    # if message.valid?
+    #       ActionCable.server.broadcast 'messages',
+    #         message: message.message,
+    #         user: message.user.username
+    #       head :ok
+    #     end
+    redirect_to friendship_path(@conversation) and return
   end
 
   private

@@ -11,6 +11,9 @@
             <%= link_to "View Friends", active_friends_path, class: "item"  %>
             <%= link_to "Pending Foodie Requests: #{@current_user.num_pending_requests}", friendships_path, class: "item" %>
             <div class="right menu">
+              <div class = "avatar-in-nav">
+              <%= image_tag @current_user.avatar_pic, class: "ui avatar image" %>
+              </div>
               <%= link_to "View Profile", user_path(@current_user), class: "item"%>
               <%= link_to "Logout", logout_path, method: :delete, class: "item"  %>
             </div>

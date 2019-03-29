@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
+
   resources :user_restrictions, only: [:new, :create]
   resources :friendships, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
@@ -22,5 +25,5 @@ Rails.application.routes.draw do
   delete "/friendships/:id", to: "friendships#unfriend", as: 'unfriend'
 
   get "/about", to: "welcome#about", as: "about_us"
-  
+
 end

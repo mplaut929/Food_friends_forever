@@ -17,6 +17,11 @@
 //= require Chart.bundle
 //= require chartkick
 
+
+//= require_tree ./channels
+
+
+
 // $(document).ready(function() {
 //     $('.ui.secondary.pointing.menu').menu();
 // });
