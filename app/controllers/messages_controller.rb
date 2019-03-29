@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     #         user: message.user.username
     #       head :ok
     #     end
-    redirect_to friendship_path(@conversation) and return
+    redirect_to friendship_path(@conversation)
   end
 
   private
